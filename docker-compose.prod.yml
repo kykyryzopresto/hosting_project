@@ -4,7 +4,7 @@ services:
   nginx:
     image: nginx:latest
     volumes:
-      - ./:/var/www/hostingproject
+      - ./:/var/www
       - ./_docker/nginx/conf.d/:/etc/nginx/conf.d
     ports:
       - 80:80
@@ -17,7 +17,7 @@ services:
       context: .
       dockerfile: _docker/app/Dockerfile
     volumes:
-      - ./:/var/www/hostingproject
+      - ./:/var/www
     depends_on:
       - db
     container_name: project_app
